@@ -249,6 +249,7 @@ class ServicesWebTestCase extends DrupalWebTestCase {
    */
   function parseHeader($content, $call_type = 'php') {
     $info = curl_getinfo($this->curlHandle);
+    $info['header_size'] = $info['header_size'] -4;
     $header = drupal_substr($content, 0, $info['header_size']);
     $header = str_replace("HTTP/1.1 100 Continue\r\n\r\n", '', $header);
     $status = strtok($header, "\r\n");
@@ -487,6 +488,9 @@ class ServicesWebTestCase extends DrupalWebTestCase {
           ),
         ),
         'actions' => array(
+          'sign_in' => array(
+            'enabled' => 1,
+          ),
           'login' => array(
             'enabled' => 1,
           ),
