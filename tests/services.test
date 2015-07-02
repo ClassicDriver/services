@@ -491,6 +491,9 @@ class ServicesWebTestCase extends DrupalWebTestCase {
           'sign_in' => array(
             'enabled' => 1,
           ),
+          'change_password' => array(
+            'enabled' => 1,
+          ),
           'login' => array(
             'enabled' => 1,
           ),
